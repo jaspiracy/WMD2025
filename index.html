@@ -3,58 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hunger Strike- Home</title>
+  <title>Hunger Strike - Home</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Navbar styles */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      padding: 10px 20px;
-    }
     nav ul {
       list-style: none;
       display: flex;
-      margin: 0;
+      justify-content: center;
       padding: 0;
+      margin: 0;
+      background-color: #333;
     }
     nav ul li {
-      margin: 0 10px;
+      margin: 0 15px;
     }
     nav ul li a {
       color: white;
       text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
-    .menu-toggle {
-      display: none;
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Footer styles */
+    footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer img {
+      vertical-align: middle;
+    }
+
+    /* Body styles to ensure footer placement */
+    body {
+      margin: 0;
+      display: flex;
       flex-direction: column;
-      cursor: pointer;
+      min-height: 100vh;
     }
-    .menu-toggle span {
-      background: white;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        width: 200px;
-        border-radius: 5px;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
+    main {
+      flex: 1;
     }
   </style>
 </head>
@@ -66,12 +69,7 @@
   <header>
     <h1>Hunger Strike</h1>
     <nav>
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul id="navbar">
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="order.html">Order</a></li>
@@ -85,27 +83,18 @@
     <p>Delicious handcrafted burgers made fresh every day.</p>
   </main>
   <footer>
-    <p>&copy; 2025 Burger Bliss. All rights reserved.</p>
+    <p>&copy; 2025 Hunger Strike. All rights reserved.</p>
     <div style="margin-top:10px;">
       <a href="https://instagram.com/" target="_blank" style="margin-right:10px;">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:24px;height:24px;vertical-align:middle;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:24px;height:24px;">
       </a>
       <a href="https://facebook.com/" target="_blank" style="margin-right:10px;">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:24px;height:24px;vertical-align:middle;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:24px;height:24px;">
       </a>
       <a href="https://twitter.com/" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width:24px;height:24px;vertical-align:middle;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width:24px;height:24px;">
       </a>
     </div>
   </footer>
-  <script>
-    // JavaScript for toggling the navbar
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('show');
-    });
-  </script>
 </body>
 </html>

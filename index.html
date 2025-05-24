@@ -5,49 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hunger Strike- Home</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Navbar styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      background: white;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        width: 200px;
+        border-radius: 5px;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Background Video -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="https://www.shutterstock.com/shutterstock/videos/3747163571/preview/stock-footage--k-burger-promo-video-featuring-a-delicious-cheeseburger-fries-and-a-cold-drink-ideal-for.webm" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-
-  <!-- Header + Navbar -->
-  <header class="bg-dark text-white">
-    <div class="container d-flex justify-content-between align-items-center py-3">
-      <h1 class="h3 m-0">Hunger Strike</h1>
-      <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <div class="container">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
+  <header>
+    <h1>Hunger Strike</h1>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li> 
+      </ul>
     </nav>
   </header>
-
-  <!-- Breadcrumbs + Main Section -->
-  <main class="container mt-4 hero-section">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb bg-light rounded-3 px-3 py-2">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      </ol>
-    </nav>
+  <main class="hero-section">
     <h2>So good, it’s an emergency!!!</h2>
     <p>Delicious handcrafted burgers made fresh every day.</p>
   </main>
-
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Burger Bliss. All rights reserved.</p>
     <div style="margin-top:10px;">
@@ -62,9 +98,14 @@
       </a>
     </div>
   </footer>
+  <script>
+    // JavaScript for toggling the navbar
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
 
-  <!-- Bootstrap Bundle JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

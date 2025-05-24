@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order - Burger Bliss</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="https://www.shutterstock.com/shutterstock/videos/3518138461/preview/stock-footage-burger-commercial-flyer-video-burger-marketing-video-cheese-burger-advertisement-poster.webm" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <header>
+    <h1>Place Your Order</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="order-section">
+    <form id="orderForm">
+      <label>Name:</label><br />
+      <input type="text" id="customerName" required /><br />
+
+      <div id="burgerList">
+        <div class="burger-row">
+          <label>Select Burger:</label><br />
+          <select class="burger-select" required>
+            <option value="Classic">Classic Burger</option>
+            <option value="Cheese">Cheese Burger</option>
+            <option value="Veggie">Veggie Burger</option>
+            <option value="Chicken">Chicken Burger</option>
+            <option value="Spicy">Spicy Jalapeno Burger</option>
+            <option value="BBQ">BBQ Bacon Burger</option>
+            <option value="Fish">Fish Fillet Burger</option>
+            <option value="Double">Double Patty Burger</option>
+            <option value="Mushroom">Mushroom Swiss Burger</option>
+            <option value="Hawaiian">Hawaiian Burger</option>
+          </select>
+          <label>Quantity:</label>
+          <input type="number" class="burger-qty" value="1" min="1" required />
+          <button type="button" class="remove-burger" style="display:none;">Remove</button>
+          <br /><br />
+        </div>
+      </div>
+      <button type="button" id="addBurger">Add Another Burger</button>
+      <br /><br />
+
+      <label>Add Extras (applies to all):</label><br />
+      <div class="extras-row">
+        <input type="checkbox" id="fries" name="extras" value="Fries">
+        <label for="fries">Fries</label>
+        <input type="checkbox" id="crushers" name="extras" value="Crushers">
+        <label for="crushers">Crushers</label>
+        <input type="checkbox" id="milkshake" name="extras" value="Milkshake">
+        <label for="milkshake">Milkshake</label>
+        <input type="checkbox" id="softdrink" name="extras" value="Soft Drink">
+        <label for="softdrink">Soft Drink</label>
+      </div>
+
+      <label>Payment Method:</label><br />
+      <div class="payment-row">
+        <input type="radio" id="cash" name="payment" value="Cash" required>
+        <label for="cash">Cash</label>
+        <input type="radio" id="card" name="payment" value="Card">
+        <label for="card">Card</label>
+        <input type="radio" id="mobile" name="payment" value="Mobile Money">
+        <label for="mobile">Mobile Money</label>
+      </div>
+      <br />
+
+      <button type="submit">Submit Order</button>
+    </form>
+    <div id="orderSummary" style="display:none;">
+      <h2>Order Summary</h2>
+      <p id="summaryDetails"></p>
+      <p id="totalCost" style="font-weight:bold;"></p>
+    </div>
+  </main>
+  <script>
+    const burgerPrices = {
+      "Classic": 50,
+      "Cheese": 60,
+      "Veggie": 55,
+      "Chicken": 58,
+      "Spicy": 62,
+      "BBQ": 65,
+      "Fish": 54,
+      "Double": 70,
+      "Mushroom": 63,
+      "Hawaiian": 60
+    };
+    const extrasPrices = {
+      "Fries": 18,
+      "Crushers": 20,
+      "Milkshake": 22,
+      "Soft Drink": 12
+    };
+
+    // Add another burger row
+    document.getElementById('addBurger').onclick = function() {
+      const burgerList = document.getElementById('burgerList');
+      const firstRow = burgerList.querySelector('.burger-row');
+      const newRow = firstRow.cloneNode(true);
+      newRow.querySelector('.burger-select').selectedIndex = 0;
+      newRow.querySelector('.burger-qty').value = 1;
+      newRow.querySelector('.remove-burger').style.display = 'inline-block';
+      burgerList.appendChild(newRow);
+    };
+
+    // Remove a burger row
+    document.getElementById('burgerList').addEventListener('click', function(e) {
+      if (e.target.classList.contains('remove-burger')) {
+        e.target.parentElement.remove();
+      }
+    });
+
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('customerName').value;
+      const burgerRows = document.querySelectorAll('.burger-row');
+      let burgerSummary = '';
+      let burgerTotal = 0;
+
+      burgerRows.forEach(function(row, idx) {
+        const burger = row.querySelector('.burger-select').value;
+        const qty = parseInt(row.querySelector('.burger-qty').value, 10);
+        const price = burgerPrices[burger] ? burgerPrices[burger] : 0;
+        burgerSummary += `${qty} x ${burger} Burger (P${price} each)<br />`;
+        burgerTotal += price * qty;
+      });
+
+      // Extras
+      const extrasChecked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
+      const extras = extrasChecked.map(el => el.value);
+      let extrasCost = extras.reduce((sum, extra) => sum + (extrasPrices[extra] || 0), 0) * burgerRows.length;
+      let totalCost = burgerTotal + extrasCost;
+
+      // Payment
+      const payment = document.querySelector('input[name="payment"]:checked')?.value || "Not selected";
+
+      const summary = `
+        Name: ${name}<br />
+        Burgers:<br />${burgerSummary}
+        Extras: ${extras.length ? extras.join(', ') : 'None'}<br />
+        Payment Method: ${payment}<br />
+      `;
+      document.getElementById('summaryDetails').innerHTML = summary;
+      document.getElementById('totalCost').innerHTML = `Total Cost: <span style="color:#ffb400;">P${totalCost}</span>`;
+      document.getElementById('orderSummary').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

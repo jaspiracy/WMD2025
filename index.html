@@ -3,111 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hunger Strike - Project Presentation</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header, footer {
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-
-    main {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    h1, h2 {
-      color: #c62828;
-    }
-
-    section {
-      margin-bottom: 30px;
-    }
-
-    ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-
-    .code {
-      background-color: #eee;
-      font-family: monospace;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-
-    .highlight {
-      background: #ffeb3b;
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-  </style>
+  <title>Hunger Strike- Home</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="https://www.shutterstock.com/shutterstock/videos/3747163571/preview/stock-footage--k-burger-promo-video-featuring-a-delicious-cheeseburger-fries-and-a-cold-drink-ideal-for.webm" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   <header>
-    <h1>🍔 Hunger Strike</h1>
-    <p>Project Presentation - Home Page</p>
+    <h1>Hunger Strike</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li> 
+      </ul>
+    </nav>
   </header>
-
-  <main>
-    <section>
-      <h2>🎯 Purpose</h2>
-      <p>The homepage of <strong>Hunger Strike</strong> introduces the brand with a compelling background video and bold copy to entice users to explore the site further.</p>
-    </section>
-
-    <section>
-      <h2>🖼️ Design Features</h2>
-      <ul>
-        <li><strong>Background Video:</strong> Looping burger promo video with autoplay, muted, and mobile-friendly.</li>
-        <li><strong>Navigation Bar:</strong> Clean menu with links to key sections: Home, Menu, Order, About, Contact.</li>
-        <li><strong>Hero Section:</strong> Bold tagline: <em>“So good, it’s an emergency!!!”</em></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>🔚 Footer & Branding</h2>
-      <p>Includes copyright notice and minimalist social icons:</p>
-      <ul>
-        <li>Instagram</li>
-        <li>Facebook</li>
-        <li>Twitter</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>📱 Responsive Design</h2>
-      <p>Optimized for mobile with <span class="highlight">&lt;meta name="viewport"&gt;</span>, semantic HTML tags, and fallback support for video.</p>
-    </section>
-
-    <section>
-      <h2>🛠️ Suggested Enhancements</h2>
-      <ul>
-        <li>Add SEO meta tags (description, keywords)</li>
-        <li>Use semantic tags like <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></li>
-        <li>Compress background video for performance</li>
-        <li>Update footer branding from "Burger Bliss" to "Hunger Strike"</li>
-      </ul>
-    </section>
+  <main class="hero-section">
+    <h2>So good, it’s an emergency!!!</h2>
+    <p>Delicious handcrafted burgers made fresh every day.</p>
   </main>
-
   <footer>
-    <p>&copy; 2025 Hunger Strike | Project Presentation</p>
+    <p>&copy; 2025 Burger Bliss. All rights reserved.</p>
+    <div style="margin-top:10px;">
+      <a href="https://instagram.com/" target="_blank" style="margin-right:10px;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:24px;height:24px;vertical-align:middle;">
+      </a>
+      <a href="https://facebook.com/" target="_blank" style="margin-right:10px;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:24px;height:24px;vertical-align:middle;">
+      </a>
+      <a href="https://twitter.com/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width:24px;height:24px;vertical-align:middle;">
+      </a>
+    </div>
   </footer>
-
 </body>
 </html>
-

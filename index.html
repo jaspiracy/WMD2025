@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grill Avenue - Home 
-   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxd95U8n4NsLEcQQJ9mny6rUNdP2H4jaiM4mUZvZXdutazdjlr6fAk_ABR9w5Fy0U7Ow&usqp=CAU" alt="Burger Logo">
-  </title>
+  <title>Grill Avenue - Home</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Reset and Base Styles */
@@ -34,37 +32,58 @@
       z-index: -1;
     }
 
-    /* Navbar styles (Copied from About Us page for consistency) */
+    /* Navbar styles */
     nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-}
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+    }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 6px 14px;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
 
-nav ul li a:hover, nav ul li a:focus {
-  background: #ffb400;
-  color: #222;
-}
+    nav ul li a:hover, nav ul li a:focus {
+      background: #ffb400;
+      color: #222;
+    }
+
     /* Header */
-    header h1 {
-      text-align: center;
-      margin: 20px 0;
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .logo-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .logo-head img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      background: #fff;
+    }
+    .logo-head h1 {
       color: white;
-      font-size: 3rem;
+      font-size: 2.5rem;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      margin: 0;
     }
 
     /* Main Content */
@@ -111,7 +130,6 @@ nav ul li a:hover, nav ul li a:focus {
       background-color: rgba(0, 0, 0, 0.8);
       color: white;
       padding: 20px 0;
-      position: center;
       bottom: 0;
       width: 100%;
     }
@@ -122,21 +140,27 @@ nav ul li a:hover, nav ul li a:focus {
     footer a:hover {
       text-decoration: underline;
     }
-    footer img {
-      vertical-align: middle;
-      filter: brightness(0) invert(1);
-    }
     .social-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
       margin-top: 10px;
     }
-    .social-icons a {
-      margin: 0 10px;
-    }
     .social-icons img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
+      filter: grayscale(100%);
+      transition: filter 0.2s, transform 0.2s;
+      vertical-align: middle;
+    }
+    .social-icons a:hover img {
+      filter: none;
+      transform: scale(1.1);
     }
   </style>
+  <!-- Logo for browser tab -->
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxd95U8n4NsLEcQQJ9mny6rUNdP2H4jaiM4mUZvZXdutazdjlr6fAk_ABR9w5Fy0U7Ow&usqp=CAU">
 </head>
 <body>
 
@@ -148,7 +172,10 @@ nav ul li a:hover, nav ul li a:focus {
 
   <!-- Header and Navigation -->
   <header>
-    <h1>Grill Avenue</h1>
+    <div class="logo-head">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxd95U8n4NsLEcQQJ9mny6rUNdP2H4jaiM4mUZvZXdutazdjlr6fAk_ABR9w5Fy0U7Ow&usqp=CAU" alt="Burger Logo">
+      <h1>Grill Avenue</h1>
+    </div>
     <nav>
       <ul>
         <li><a href="index.html" aria-current="page">Home</a></li>
@@ -173,13 +200,13 @@ nav ul li a:hover, nav ul li a:focus {
   <footer>
     <p>&copy; 2025 Grill Avenue. All rights reserved.</p>
     <div class="social-icons">
-      <a href="https://instagram.com/" target="_blank">
+      <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
       </a>
-      <a href="https://facebook.com/" target="_blank">
+      <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
       </a>
-      <a href="https://twitter.com/" target="_blank">
+      <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter">
       </a>
     </div>

@@ -6,14 +6,40 @@
   <title>Grill Avenue - Home</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Navbar styles */
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: white;
+    }
+
+    /* Background Video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Navbar styles (Copied from About Us page for consistency) */
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
       padding: 0;
       margin: 0;
-      background-color: #333;
+      background-color: rgba(0, 0, 0, 0.8);
     }
     nav ul li {
       margin: 0 15px;
@@ -28,23 +54,59 @@
       color: #ffcc00;
     }
 
-    /* Video background */
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
+    /* Header */
+    header h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: white;
+      font-size: 3rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
 
-    /* Footer styles */
+    /* Main Content */
+    main.hero-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+    }
+    .hero-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .cta-button {
+      background-color: #ffcc00;
+      color: black;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #e6b800;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      background-color: #333;
+      background-color: rgba(0, 0, 0, 0.8);
       color: white;
-      padding: 10px 0;
+      padding: 20px 0;
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -58,38 +120,34 @@
     }
     footer img {
       vertical-align: middle;
+      filter: brightness(0) invert(1);
     }
-
-    /* Body styles to ensure footer placement */
-    body {
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+    .social-icons {
+      margin-top: 10px;
     }
-    main {
-      flex: 1;
-      text-align: center;
-      color: white;
-      margin-top: 100px;
+    .social-icons a {
+      margin: 0 10px;
     }
-    header h1 {
-      text-align: center;
-      color: white;
-      margin: 20px 0;
+    .social-icons img {
+      width: 24px;
+      height: 24px;
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Video -->
   <video autoplay muted loop playsinline id="bg-video">
-    <source src="https://www.shutterstock.com/shutterstock/videos/3747163571/preview/stock-footage--k-burger-promo-video-featuring-a-delicious-cheeseburger-fries-and-a-cold-drink-ideal-for.webm" type="video/mp4">
+    <source src="https://www.shutterstock.com/shutterstock/videos/3747163571/preview/stock-footage--k-burger-promo-video-featuring-a-delicious-cheeseburger-fries-and-a-cold-drink-ideal-for.webm" type="video/webm">
     Your browser does not support the video tag.
   </video>
+
+  <!-- Header and Navigation -->
   <header>
     <h1>Grill Avenue</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="order.html">Order</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -97,23 +155,31 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Hero Section -->
   <main class="hero-section">
-    <h2>So good, it’s an emergency,don't 911 call us instead!!!</h2>
-    <p>Delicious handcrafted burgers made fresh every day.</p>
+    <h2>So good, it’s an emergency — don’t call 911, call us instead!</h2>
+    <p>
+      Welcome to Grill Avenue — your go-to destination for mouthwatering burgers, crispy fries, and icy drinks. Handcrafted with fresh, local ingredients and bursting with flavor, we promise to satisfy every craving!
+    </p>
+    <a href="menu.html" class="cta-button">Explore Our Menu</a>
   </main>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Grill Avenue. All rights reserved.</p>
-    <div style="margin-top:10px;">
-      <a href="https://instagram.com/" target="_blank" style="margin-right:10px;">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:24px;height:24px;">
+    <div class="social-icons">
+      <a href="https://instagram.com/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
       </a>
-      <a href="https://facebook.com/" target="_blank" style="margin-right:10px;">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:24px;height:24px;">
+      <a href="https://facebook.com/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
       </a>
       <a href="https://twitter.com/" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width:24px;height:24px;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter">
       </a>
     </div>
   </footer>
+
 </body>
 </html>
